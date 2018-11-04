@@ -14,10 +14,15 @@
 
 +++
 
+@title[News]
+#### There Is No JUnit 5
+## Agenda
+
 @ul
+- Support: https://steadyhq.com/en/junit
 - Slides: https://github.com/sormuras/junit5-there-is-no-junit5
-- Slack: jvm-german Channel: #jug-bonn
-- Support JUnit: https://steadyhq.com/en/junit
+- Slack: `jvm-german` Channel: `#jug-bonn` bit.ly/jvmg-invite
+- EntwickelBar: https://entwickelbar.github.io/ am 24. November
 @ulend
 
 +++
