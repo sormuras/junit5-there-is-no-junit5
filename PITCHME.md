@@ -36,8 +36,17 @@
 
 ## There is **no** JUnit 5
 
+@ul
+
+- Who uses JUnit?
+- Which Build Tool? Which IDE?
+- Java Frameworks?
+
+@ulend
+
 Note:
-Not a single artifact.
+JUnit 4 ships in a single artifact.
+Test authors vs. Build Tool vs. Extensions
 
 +++
 
