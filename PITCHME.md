@@ -1,9 +1,9 @@
 @title[JUnit 5 - There Is No JUnit 5]
 # JUnit 5
 ## There Is No JUnit 5
+<br/>
+<br/>
 
-<br/>
-<br/>
 <a href="https://www.micromata.de"><img src="https://github.com/sormuras/testing-in-the-modular-world/raw/master/img/micromata-logo.png" height="80" /></a>
 <a href="https://junit.org/junit5"><img src="https://github.com/sormuras/testing-in-the-modular-world/raw/master/img/junit5-logo.png" height="80" /></a>
 <a href="https://maven.apache.org"><img src="https://github.com/sormuras/testing-in-the-modular-world/raw/master/img/maven-logo-black-on-white.png" height="80" /></a>
@@ -14,18 +14,24 @@
 
 +++
 
+@ul
+- Slides: https://github.com/sormuras/junit5-there-is-no-junit5
+- Slack: jvm-german Channel: #jug-bonn
+- Support JUnit: https://steadyhq.com/en/junit
+@ulend
+
++++
+
 @title[Agenda]
 #### There Is No JUnit 5
 ## Agenda
 <br>
 
 @ul
-
 - What is JUnit 5?
 - JUnit API Evolution
 - Jupiter **Live Coding**
 - Questions and Answers
-
 @ulend
 
 ---
@@ -347,15 +353,19 @@ For a detailed description consult the [Parallel Execution](https://junit.org/ju
 
 # Take-away
 
-* There is no JUnit 5 - use JUnit 5! ✅
-* Try and test Java modules. ☕
-* How to test them best? To be seen...
+* There is no JUnit 5...
+* Use JUnit 5! ✅
 
 +++
 
-# Thanks!
-#### Happy testing. 
+# Thanks
+#### Happy testing!
 
-*twitter* [@sormuras](https://twitter.com/sormuras)
-*blog* [sormuras.github.io](https://sormuras.github.io)
-*slide:* [junit5-there-is-no-junit5](https://github.com/sormuras/junit5-there-is-no-junit5)
+Support JUnit: https://steadyhq.com/en/junit
+
+<small>
+[@sormuras](https://twitter.com/sormuras)
+[sormuras.github.io](https://sormuras.github.io)
+[junit5-there-is-no-junit5](https://github.com/sormuras/junit5-there-is-no-junit5)
+[slack jvm-german #jug-bonn](bit.ly/jvmg-invite)
+</small> 
