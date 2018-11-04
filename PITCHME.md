@@ -5,12 +5,11 @@
 #### Christian Stein
 
 <small>
-<img src="https://github.com/sormuras/testing-in-the-modular-world/raw/master/img/micromata-logo.png" height="80" />
-[MICROMATA](https://www.micromata.de/)
+<a href="https://www.micromata.de"><img src="https://github.com/sormuras/testing-in-the-modular-world/raw/master/img/micromata-logo.png" height="80" /></a>
 <img src="https://github.com/sormuras/testing-in-the-modular-world/raw/master/img/junit5-logo.png" height="80" />
 <img src="https://github.com/sormuras/testing-in-the-modular-world/raw/master/img/maven-logo-black-on-white.png" height="80" />
 <br/>
-*Twitter* [@sormuras](https://twitter.com/sormuras) - *Web* [sormuras.github.io](https://sormuras.github.io)
+*twitter* [@sormuras](https://twitter.com/sormuras) - *blog* [sormuras.github.io](https://sormuras.github.io)
 </small>
 
 +++
