@@ -1,6 +1,6 @@
 @title[JUnit 5 - There Is No JUnit 5]
 # JUnit 5
-## There Is No JUnit 5
+## Platform & Jupiter API
 <br/>
 <br/>
 
@@ -14,9 +14,8 @@
 
 +++
 
-@title[News]
-# JUnit 5
-## News
+@title[Links]
+#### Links
 
 <small>
 @ul
@@ -62,7 +61,7 @@ Writing Tests vs. Running Tests vs. Make writing tests easier for X
 
 +++
 
-![JUnit 4 Usage](https://raw.githubusercontent.com/marcphilipp/presentations/master/junit5-intro/junit4-usage.svg)
+![JUnit 4 Usage](https://raw.githubusercontent.com/marcphilipp/presentations/master/junit5-intro/junit4-usage.svg?sanitize=true)
 
 Note:
 JUnit 4 ships in a single artifact.
