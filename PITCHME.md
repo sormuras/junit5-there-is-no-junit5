@@ -68,6 +68,14 @@ JUnit 4 ships in a single artifact.
 
 +++
 
+#### JUnit 4 - Rename a privat field...
+
+![JUnit 4 #976](https://raw.githubusercontent.com/marcphilipp/presentations/master/junit5-intro/serialization-bug.png)
+
+...what could possibly go wrong?
+
++++
+
 #### JUnit 5 Architecture
 
 ![JUnit 5 Architecture](https://github.com/sormuras/testing-in-the-modular-world/raw/master/img/junit5-architecture-0.png)
