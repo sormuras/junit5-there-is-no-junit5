@@ -32,14 +32,15 @@
 ## Agenda
 
 @ul
-- Architecture **Revolution**
-- **API** Evolution
+- Motivation
+- Architecture
+- **API** Comparison
 - Jupiter **Live Coding**
 @ulend
 
 ---
 
-# Architecture
+# Motivation
 
 +++
 
@@ -58,12 +59,11 @@ Writing Tests vs. Running Tests vs. Make writing tests easier for X
 
 +++
 
-#### JUnit 4 Architecture
+#### JUnit 4 - "Architecture"
 
 ![JUnit 4 Usage](https://raw.githubusercontent.com/marcphilipp/presentations/master/junit5-intro/junit4-usage.svg?sanitize=true)
 
-Note:
-JUnit 4 ships in a single artifact.
+JUnit 4 ships as a single artifact.
 
 +++
 
@@ -74,6 +74,11 @@ JUnit 4 ships in a single artifact.
 ...what could possibly go wrong?
 
 ---
+
+#### JUnit 5
+# Architecture
+
++++
 
 #### JUnit 5 = ...
 # Platform
@@ -98,11 +103,9 @@ JUnit 4 ships in a single artifact.
         selectClass(ShippingTests.class),
         selectMethod("org.example.order.OrderTests#test1"),
         selectMethod("org.example.order.OrderTests#test2()"),
-        selectMethod("org.example.order.OrderTests#test3(java.lang.String)"),
-        selectMethod("org.example.order.OrderTests", "test4"),
+        selectMethod("org.example.order.OrderTests", "test3"),
         selectMethod(OrderTests.class, "test5"),
         selectMethod(OrderTests.class, testMethod),
-        selectClasspathRoots(Collections.singleton(new File("/my/local/path1"))),
         selectUniqueId("unique-id-1"),
         selectUniqueId("unique-id-2")
      )
@@ -119,11 +122,27 @@ JUnit 4 ships in a single artifact.
      .build();
 ```
 @[1](Launcher)
-@[2-15](Selectors)
-@[16-23](Filters)
-@[24-26](Custom configuration)
+@[2-13](Selectors)
+@[14-21](Filters)
+@[22-23](Custom configuration parameters)
+@[1-24]
 
 @ulend
+
++++
+
+#### `TestEngine`☑ interface
+
+```java
+package org.junit.platform.engine;
+
+public interface TestEngine {
+
+  TestDescriptor discover(EngineDiscoveryRequest discoveryRequest, UniqueId uniqueId);
+  void execute(ExecutionRequest request);
+
+}
+```
 
 +++
 
