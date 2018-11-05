@@ -78,7 +78,7 @@ JUnit 4 ships in a single artifact.
 
 #### JUnit 5 Architecture
 
-![JUnit 5 Architecture](https://github.com/sormuras/testing-in-the-modular-world/raw/master/img/junit5-architecture-0.png)
+![JUnit 5 Architecture](https://raw.githubusercontent.com/sormuras/sormuras.github.io/master/asset/img/junit5-architecture-a-platform.png)
 
 Note:
 Now, into the red box: the Platform
@@ -92,42 +92,20 @@ Now, into the red box: the Platform
 @ul
 
 - Foundation for launching test engines
-- Defines and uses **`TestEngine`** ☑ interface
+- Defines and uses **`TestEngine`**☑ interface
 
 @ulend
 
 +++
 
-![JUnit 5 Architecture](https://github.com/sormuras/testing-in-the-modular-world/raw/master/img/junit5-architecture-0.png)
-
-Note:
-Next, let's dive in to green box: Jupiter
-
-+++
- 
-#### JUnit 5 = Platform + ...
-# Jupiter
-<br>
-
-@ul
-
-- **`JupiterTestEngine` is a `TestEngine`**☑
-- New programming model for writing tests
-- New extension model for writing extensions
-- *JUnit 5*
-
-@ulend
-
-+++
-
-![JUnit 5 Architecture](https://github.com/sormuras/testing-in-the-modular-world/raw/master/img/junit5-architecture-0.png)
+![JUnit 5 Architecture](https://raw.githubusercontent.com/sormuras/sormuras.github.io/master/asset/img/junit5-architecture-b-vintage.png)
 
 Note:
 Don't forget your legacy, the yellow box: Vintage
 
 +++
 
-#### JUnit 5 = Platform + Jupiter + ...
+#### JUnit 5 = Platform + ...
 # Vintage
 <br>
 
@@ -140,14 +118,36 @@ Don't forget your legacy, the yellow box: Vintage
 
 +++
 
-![JUnit 5 Architecture](https://github.com/sormuras/testing-in-the-modular-world/raw/master/img/junit5-architecture-0.png)
+![JUnit 5 Architecture](https://raw.githubusercontent.com/sormuras/sormuras.github.io/master/asset/img/junit5-architecture-c-jupiter.png)
+
+Note:
+Next, let's dive in to green box: Jupiter
+
++++
+ 
+#### JUnit 5 = Platform + Vintage + ...
+# Jupiter
+<br>
+
+@ul
+
+- **`JupiterTestEngine` is a `TestEngine`**☑
+- New programming model for writing tests
+- New extension model for writing extensions
+- "*JUnit 5*"
+
+@ulend
+
++++
+
+![JUnit 5 Architecture](https://raw.githubusercontent.com/sormuras/sormuras.github.io/master/asset/img/junit5-architecture-d-overview.png)
 
 Note:
 Now the most interesting part in blue color: Your Engine
 
 +++
 
-#### JUnit 5 = Platform + Jupiter + Vintage + ...
+#### JUnit 5 = Platform + Vintage + Jupiter + ...
 # Your Engine
 <br>
 
@@ -164,7 +164,7 @@ Now the most interesting part in blue color: Your Engine
 #### JUnit 5 = Platform + *many engines*
 # 3<sup>rd</sup>-party Engines ☑
 
-TestNG, Specsy, Spek, KotlinTest, Cucumber, Drools, jqwik, ...
+Specsy, Spek, KotlinTest, Cucumber, Drools, jqwik, ...
 
 <small><https://github.com/junit-team/junit5/wiki/Third-party-Extensions></small>
 
