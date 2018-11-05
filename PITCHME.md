@@ -1,11 +1,13 @@
-@title[JUnit 5 - There Is No JUnit 5]
+@title[JUnit 5 - Platform & Jupiter API]
 # JUnit 5
 ## Platform & Jupiter API
 <br/>
 <br/>
 
 <a href="https://www.micromata.de"><img src="https://github.com/sormuras/testing-in-the-modular-world/raw/master/img/micromata-logo.png" height="80" /></a>
+&nbsp;
 <a href="https://junit.org/junit5"><img src="https://github.com/sormuras/testing-in-the-modular-world/raw/master/img/junit5-logo.png" height="80" /></a>
+&nbsp;
 <a href="https://maven.apache.org"><img src="https://github.com/sormuras/testing-in-the-modular-world/raw/master/img/maven-logo-black-on-white.png" height="80" /></a>
 <br/>
 <small>
@@ -104,7 +106,7 @@ JUnit 4 ships as a single artifact.
         selectMethod("org.example.order.OrderTests#test1"),
         selectMethod("org.example.order.OrderTests#test2()"),
         selectMethod("org.example.order.OrderTests", "test3"),
-        selectMethod(OrderTests.class, "test5"),
+        selectMethod(OrderTests.class, "test4"),
         selectMethod(OrderTests.class, testMethod),
         selectUniqueId("unique-id-1"),
         selectUniqueId("unique-id-2")
@@ -138,8 +140,9 @@ package org.junit.platform.engine;
 
 public interface TestEngine {
 
-  TestDescriptor discover(EngineDiscoveryRequest discoveryRequest, UniqueId uniqueId);
-  void execute(ExecutionRequest request);
+  TestDescriptor discover(EngineDiscoveryRequest discoveryRequest...);
+
+  void execute(ExecutionRequest executionRequest);
 
 }
 ```
@@ -227,7 +230,9 @@ Specsy, Spek, KotlinTest, Cucumber, Drools, jqwik, ...
 
 +++
 
-[JUnit 4 vs Jupiter - a high-level concept & API comparison](https://sormuras.github.io/blog/2018-09-13-junit-4-core-vs-jupiter-api)
+## JUnit 4 | Jupiter
+
+High-level concept & API comparison
 
 | JUnit 4 | Jupiter |
 | :-----: | :-----: |
@@ -246,10 +251,10 @@ Basic stuff is basic. Commonly.
 
 | JUnit 4 | Jupiter |
 | ------- | ------- |
-| [`Test`](https://junit.org/junit4/javadoc/latest/org/junit/Test.html)  | [`Test`](https://junit.org/junit5/docs/current/api/org/junit/jupiter/api/Test.html)  |
-| _The `Test` annotation tells JUnit that the `public void` method to which it is attached can be run as a test case._ | _`@Test` is used to signal that the annotated method is a test method._ |
+| [`@Test`](https://junit.org/junit4/javadoc/latest/org/junit/Test.html)  | [`@Test`](https://junit.org/junit5/docs/current/api/org/junit/jupiter/api/Test.html)  |
+| _The `Test` annotation tells JUnit that the `public void` method ..._ | _`@Test` is used to signal that the annotated method is a test._ |
 
-- Caveat! The `expected` and `timeout` annotation elements of `org.junit.Test` are handled by dedicated **Jupiter** assertions.
+<small>The `expected` and `timeout` annotation elements of `org.junit.Test` are handled by dedicated **Jupiter** assertions.</small>
  
 +++ 
  
@@ -259,8 +264,7 @@ Basic stuff is basic. Commonly.
 | ------- | ------- |
 | [`Assert`](https://junit.org/junit4/javadoc/latest/org/junit/Assert.html) | [`Assertions`](https://junit.org/junit5/docs/current/api/org/junit/jupiter/api/Assertions.html) |
 | _A set of assertion methods useful for writing tests._ | _`Assertions` is a collection of utility methods that support asserting conditions in tests._ |
-
-- Mind the flip! From `Assert.assertEquals(String message, Object expected, Object actual)` to `Assertions.assertEquals(Object expected, Object actual, String message)`.
+| `assertEquals(message, expected, actual)` | `assertEquals(expected, actual, message)` |
 
 +++
 
@@ -268,8 +272,8 @@ Basic stuff is basic. Commonly.
 
 | JUnit 4 | Jupiter |
 | ------- | ------- |
-| [`Ignore`](https://junit.org/junit4/javadoc/latest/org/junit/Ignore.html) | [`Disabled`](https://junit.org/junit5/docs/current/api/org/junit/jupiter/api/Disabled.html) |
-| _Sometimes you want to temporarily disable a test or a group of tests._ | _`@Disabled` is used to signal that the annotated test class or test method is currently disabled and should not be executed._ |
+| [`@Ignore`](https://junit.org/junit4/javadoc/latest/org/junit/Ignore.html) | [`@Disabled`](https://junit.org/junit5/docs/current/api/org/junit/jupiter/api/Disabled.html) |
+| _Disable a test or a group of tests._ | _`@Disabled` is used to signal that the annotated test class or test method is currently disabled._ |
 
 +++
 
@@ -280,7 +284,7 @@ Basic stuff is basic. Commonly.
 | [`Assume`](https://junit.org/junit4/javadoc/latest/org/junit/Assume.html) | [`Assumptions`](https://junit.org/junit5/docs/current/api/org/junit/jupiter/api/Assumptions.html) |
 | _A set of methods useful for stating assumptions about the conditions in which a test is meaningful._ | _`Assumptions` is a collection of utility methods that support conditional test execution based on assumptions._ |
 
-- New! Annotation-based conditions for enabling or disabling tests in JUnit Jupiter [org.junit.jupiter.api.condition](https://junit.org/junit5/docs/current/api/org/junit/jupiter/api/condition/package-summary.html)
+<small>Annotation-based conditions for enabling or disabling tests in **Jupiter** [org.junit.jupiter.api.condition](https://junit.org/junit5/docs/current/api/org/junit/jupiter/api/condition/package-summary.html)</small>
 
 +++
 
@@ -289,13 +293,9 @@ Basic stuff is basic. Commonly.
 | JUnit 4 | Jupiter |
 | ------- | ------- |
 | [`BeforeClass`](https://junit.org/junit4/javadoc/latest/org/junit/BeforeClass.html) | [`BeforeAll`](https://junit.org/junit5/docs/current/api/org/junit/jupiter/api/BeforeAll.html) |
-| _Sometimes several tests need to share computationally expensive setup (like logging into a database)._ | _`@BeforeAll` is used to signal that the annotated method should be executed before all tests in the current test class._ |
 | [`Before`](https://junit.org/junit4/javadoc/latest/org/junit/Before.html) | [`BeforeEach`](https://junit.org/junit5/docs/current/api/org/junit/jupiter/api/BeforeEach.html) |
-| _When writing tests, it is common to find that several tests need similar objects created before they can run._ | _`@BeforeEach` is used to signal that the annotated method should be executed before **each** `@Test`, `@RepeatedTest`, `@ParameterizedTest`, `@TestFactory`, and `@TestTemplate` method in the current test class._ |
 | [`After`](https://junit.org/junit4/javadoc/latest/org/junit/After.html) | [`AfterEach`](https://junit.org/junit5/docs/current/api/org/junit/jupiter/api/AfterEach.html) |
-| _If you allocate external resources in a `Before` method you need to release them after the test runs._ | _`@AfterEach` is used to signal that the annotated method should be executed after **each** `@Test`, `@RepeatedTest`, `@ParameterizedTest`, `@TestFactory`, and `@TestTemplate` method in the current test class._ |
 | [`AfterClass`](https://junit.org/junit4/javadoc/latest/org/junit/AfterClass.html) | [`AfterAll`](https://junit.org/junit5/docs/current/api/org/junit/jupiter/api/AfterAll.html) |
-| _If you allocate expensive external resources in a `BeforeClass` method you need to release them after all the tests in the class have run._ | _`@AfterAll` is used to signal that the annotated method should be executed after all tests in the current test class._ |
 
 +++
 
@@ -337,7 +337,7 @@ For a detailed description consult the [Extension Model](https://junit.org/junit
 
 ## ✨ New Concepts
 
-REVOLUTION! You might have not asked for it, but it is here.
+- REVOLUTION!
 
 +++
 
