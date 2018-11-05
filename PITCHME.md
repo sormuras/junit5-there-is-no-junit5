@@ -15,7 +15,7 @@
 +++
 
 @title[Links]
-#### Links
+## Links
 
 <small>
 @ul
@@ -29,15 +29,13 @@
 +++
 
 @title[Agenda]
-#### There Is No JUnit 5
 ## Agenda
-<br>
 
 @ul
+- There Is No JUnit 5
 - What is JUnit 5?
 - API Evolution
 - Jupiter **Live Coding**
-- Questions and Answers
 @ulend
 
 ---
@@ -61,12 +59,16 @@ Writing Tests vs. Running Tests vs. Make writing tests easier for X
 
 +++
 
+#### JUnit 4 - Poor Small Jar
+
 ![JUnit 4 Usage](https://raw.githubusercontent.com/marcphilipp/presentations/master/junit5-intro/junit4-usage.svg?sanitize=true)
 
 Note:
 JUnit 4 ships in a single artifact.
 
 +++
+
+#### JUnit 5 Architecture
 
 ![JUnit 5 Architecture](https://github.com/sormuras/testing-in-the-modular-world/raw/master/img/junit5-architecture-0.png)
 
