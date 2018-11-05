@@ -14,8 +14,8 @@
 
 +++
 
-@title[Links]
-## Links
+@title[Snapshots]
+## Snapshots
 
 <small>
 @ul
@@ -59,7 +59,7 @@ Writing Tests vs. Running Tests vs. Make writing tests easier for X
 
 +++
 
-#### JUnit 4 - Poor Small Jar
+#### JUnit 4 Architecture
 
 ![JUnit 4 Usage](https://raw.githubusercontent.com/marcphilipp/presentations/master/junit5-intro/junit4-usage.svg?sanitize=true)
 
@@ -74,17 +74,8 @@ JUnit 4 ships in a single artifact.
 
 ...what could possibly go wrong?
 
-+++
+---
 
-#### JUnit 5 Architecture
-
-![JUnit 5 Architecture](https://raw.githubusercontent.com/sormuras/sormuras.github.io/master/asset/img/junit5-architecture-a-platform.png)
-
-Note:
-Now, into the red box: the Platform
-
-+++
- 
 #### JUnit 5 = ...
 # Platform
 <br>
@@ -98,10 +89,51 @@ Now, into the red box: the Platform
 
 +++
 
-![JUnit 5 Architecture](https://raw.githubusercontent.com/sormuras/sormuras.github.io/master/asset/img/junit5-architecture-b-vintage.png)
+#### JUnit 5 = ...
+# Platform
+<br>
 
-Note:
-Don't forget your legacy, the yellow box: Vintage
+@ul
+
+```java
+   LauncherDiscoveryRequestBuilder.request()
+     .selectors(
+        selectPackage("org.example.user"),
+        selectClass("org.example.payment.PaymentTests"),
+        selectClass(ShippingTests.class),
+        selectMethod("org.example.order.OrderTests#test1"),
+        selectMethod("org.example.order.OrderTests#test2()"),
+        selectMethod("org.example.order.OrderTests#test3(java.lang.String)"),
+        selectMethod("org.example.order.OrderTests", "test4"),
+        selectMethod(OrderTests.class, "test5"),
+        selectMethod(OrderTests.class, testMethod),
+        selectClasspathRoots(Collections.singleton(new File("/my/local/path1"))),
+        selectUniqueId("unique-id-1"),
+        selectUniqueId("unique-id-2")
+     )
+     .filters(
+        includeEngines("junit-jupiter", "spek"),
+        excludeEngines("junit-vintage"),
+        includeTags("fast"),
+        excludeTags("slow"),
+        includeClassNamePatterns(".*Test[s]?")
+        includeClassNamePatterns("org\.example\.tests.*")
+     )
+     .configurationParameter("key1", "value1")
+     .configurationParameters(configParameterMap)
+     .build();
+```
+@[14-16](Name of a **package** to be opened by the current module)
+@[18-19](Service consumption and provision via `java.util.ServiceLoader`)
+@[1-26]
+
+@ulend
+
++++
+
+#### JUnit 5 = Platform + ...
+
+![JUnit 5 Architecture](https://raw.githubusercontent.com/sormuras/sormuras.github.io/master/asset/img/junit5-architecture-a-platform.png)
 
 +++
 
@@ -118,10 +150,7 @@ Don't forget your legacy, the yellow box: Vintage
 
 +++
 
-![JUnit 5 Architecture](https://raw.githubusercontent.com/sormuras/sormuras.github.io/master/asset/img/junit5-architecture-c-jupiter.png)
-
-Note:
-Next, let's dive in to green box: Jupiter
+![JUnit 5 Architecture](https://raw.githubusercontent.com/sormuras/sormuras.github.io/master/asset/img/junit5-architecture-b-vintage.png)
 
 +++
  
@@ -140,10 +169,7 @@ Next, let's dive in to green box: Jupiter
 
 +++
 
-![JUnit 5 Architecture](https://raw.githubusercontent.com/sormuras/sormuras.github.io/master/asset/img/junit5-architecture-d-overview.png)
-
-Note:
-Now the most interesting part in blue color: Your Engine
+![JUnit 5 Architecture](https://raw.githubusercontent.com/sormuras/sormuras.github.io/master/asset/img/junit5-architecture-c-jupiter.png)
 
 +++
 
@@ -158,6 +184,10 @@ Now the most interesting part in blue color: Your Engine
 - How is a test evaluated? **You define it!**
 
 @ulend
+
++++
+
+![JUnit 5 Architecture](https://raw.githubusercontent.com/sormuras/sormuras.github.io/master/asset/img/junit5-architecture-d-overview.png)
 
 +++
 
