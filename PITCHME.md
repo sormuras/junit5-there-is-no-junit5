@@ -15,15 +15,17 @@
 +++
 
 @title[News]
-#### There Is No JUnit 5
-## Agenda
+# JUnit 5
+## News
 
+<small>
 @ul
 - Support: https://steadyhq.com/en/junit
 - Slides: https://github.com/sormuras/junit5-there-is-no-junit5
-- Slack: `jvm-german` Channel: `#jug-bonn` bit.ly/jvmg-invite
+- Slack: `jvm-german` Channel: `#jug-bonn` https://bit.ly/jvmg-invite
 - EntwickelBar: https://entwickelbar.github.io/ am 24. November
 @ulend
+</small>
 
 +++
 
@@ -34,7 +36,7 @@
 
 @ul
 - What is JUnit 5?
-- JUnit API Evolution
+- API Evolution
 - Jupiter **Live Coding**
 - Questions and Answers
 @ulend
@@ -51,13 +53,19 @@
 
 - Who uses JUnit?
 - Which Build Tool? Which IDE?
-- Java Frameworks?
+- Frameworks?
 
 @ulend
 
 Note:
+Writing Tests vs. Running Tests vs. Make writing tests easier for X
+
++++
+
+![JUnit 4 Usage](https://raw.githubusercontent.com/marcphilipp/presentations/master/junit5-intro/junit4-usage.svg)
+
+Note:
 JUnit 4 ships in a single artifact.
-Test authors vs. Build Tool vs. Extensions
 
 +++
 
