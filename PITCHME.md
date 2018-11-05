@@ -32,15 +32,14 @@
 ## Agenda
 
 @ul
-- There Is No JUnit 5
-- What is JUnit 5?
-- API Evolution
+- Architecture **Revolution**
+- **API** Evolution
 - Jupiter **Live Coding**
 @ulend
 
 ---
 
-# What is JUnit 5?
+# Architecture
 
 +++
 
@@ -89,11 +88,7 @@ JUnit 4 ships in a single artifact.
 
 +++
 
-#### JUnit 5 = ...
-# Platform
-<br>
-
-@ul
+#### Platform Launcher
 
 ```java
    LauncherDiscoveryRequestBuilder.request()
@@ -123,9 +118,10 @@ JUnit 4 ships in a single artifact.
      .configurationParameters(configParameterMap)
      .build();
 ```
-@[14-16](Name of a **package** to be opened by the current module)
-@[18-19](Service consumption and provision via `java.util.ServiceLoader`)
-@[1-26]
+@[1](Launcher)
+@[2-15](Selectors)
+@[16-23](Filters)
+@[24-26](Custom configuration)
 
 @ulend
 
