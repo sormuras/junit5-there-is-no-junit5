@@ -18,15 +18,19 @@
 @title[Snapshots]
 ## Snapshots
 
+<small>
 @ul
 
+- User Guide: 📜 https://junit.org/junit5/docs/current/user-guide
+- Samples: https://github.com/junit-team/junit5-samples
 - Workshop JUnit 5: c.stein@micromata.de
 - Support JUnit: https://steadyhq.com/en/junit
-- Java 11: https://jdk.java.net/11
-- Slack: `jvm-german` `#jug-bonn` https://bit.ly/jvmg-invite
+- Java 11: https://jdk.java.net/11 ☕
+- Slack: `jvm-german`/`#jug-bonn` https://bit.ly/jvmg-invite
 - Unconference: https://entwickelbar.github.io am 24. November
 
 @ulend
+</small>
 
 ---
 
@@ -149,6 +153,8 @@ public interface TestEngine {
 @[5](Discovery)
 @[7](Execution)
 @[1-9]
+
+<small>📜 [JUnit Platform Launcher API](https://junit.org/junit5/docs/current/user-guide/#launcher-api)</small>
 
 +++
 
@@ -302,7 +308,7 @@ Basic stuff is basic. Commonly.
 | ------- | ------- |
 | [`Assert`](https://junit.org/junit4/javadoc/latest/org/junit/Assert.html) | [`Assertions`](https://junit.org/junit5/docs/current/api/org/junit/jupiter/api/Assertions.html) |
 | A set of assertion methods useful for writing tests. | `Assertions` is a collection of utility methods that support asserting conditions in tests. |
-| `assertEquals(message, expected, actual)` | `assertEquals(expected, actual, message)` |
+| <small>`assertEquals(message, expected, actual)`</small> | <small>`assertEquals(expected, actual, message)`</small> |
 
 +++
 
@@ -345,11 +351,13 @@ Changed, evolved, matured.
 
 ### Tagging and Filtering
 
-In contrast to the limited `org.junit.experimental.categories.Category` annotation and its associated runner in JUnit 4, JUnit Jupiter uses simple `String`s as markers. 
-Test classes and methods can be tagged via the [`@Tag`](https://junit.org/junit5/docs/current/api/org/junit/jupiter/api/Tag.html) annotation.
-Those tags can later be used to filter test discovery and execution.
+| JUnit 4 | Jupiter |
+| ------- | ------- |
+| [`@Category`](https://github.com/junit-team/junit4/wiki/Categories) | [`@Tag`](https://junit.org/junit5/docs/current/api/org/junit/jupiter/api/Tag.html) |
+| `@RunWith(Categories.class)` runner and marker interfaces. | Simple `String`s as markers, [Tag Expressions](https://junit.org/junit5/docs/current/user-guide/#running-tests-tag-expressions) at Platform level. |
 
-For a detailed description consult the [Tagging and Filtering](https://junit.org/junit5/docs/current/user-guide/#writing-tests-tagging-and-filtering) chapter in the User-Guide.
+
+<small>📜 [Tagging and Filtering](https://junit.org/junit5/docs/current/user-guide/#writing-tests-tagging-and-filtering)</small>
 
 +++
 
