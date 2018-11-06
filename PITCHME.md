@@ -472,13 +472,22 @@ For a detailed description consult the [Parallel Execution](https://junit.org/ju
 
 +++
 
-## Important Future Milestones
-  
-  - New reporting format [opentest4j: #9](https://github.com/ota4j-team/opentest4j/issues/9)
-  - Declarative Test Suites [theme: suites](https://github.com/junit-team/junit5/labels/theme%3A%20suites)
-  - Parameterized Classes [#871](https://github.com/junit-team/junit5/issues/871)
-  - Scenario Tests [#48](https://github.com/junit-team/junit5/issues/48)
-  - _Your ideas?_
+## Coming In Jupiter 5.4
+
+- Bug Fixes
+- Display Name Generator
+- Test Kit
+
++++
+
+## Future
+
+- New reporting format [opentest4j: #9](https://github.com/ota4j-team/opentest4j/issues/9)
+- Order Sequence of Tests
+- Declarative Test Suites [theme: suites](https://github.com/junit-team/junit5/labels/theme%3A%20suites)
+- Parameterized Classes [#871](https://github.com/junit-team/junit5/issues/871)
+- Scenario Tests [#48](https://github.com/junit-team/junit5/issues/48)
+- _Your ideas?_
 
 +++
 
