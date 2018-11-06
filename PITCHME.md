@@ -59,7 +59,7 @@ Writing Tests vs. Running Tests vs. Make writing tests easier for X
 
 +++
 
-#### JUnit 4 - "Architecture"
+#### JUnit 4 - One Jar To Rule Them All
 
 ![JUnit 4 Usage](https://raw.githubusercontent.com/marcphilipp/presentations/master/junit5-intro/junit4-usage.svg?sanitize=true)
 
@@ -67,11 +67,27 @@ JUnit 4 ships as a single artifact.
 
 +++
 
-#### JUnit 4 - Rename a privat field...
+#### JUnit 4 - Rename a private field...
+
+...what could possibly go wrong?
 
 ![JUnit 4 #976](https://raw.githubusercontent.com/marcphilipp/presentations/master/junit5-intro/serialization-bug.png)
 
-...what could possibly go wrong?
++++
+
+## Separation of Concerns
+
+- Extensible mechanisms to discover and execute tests
+- An API to write tests
+- An API to write extensions
+
++++
+
+## Design Goals
+
+- *Flexibility:* Adding new features should be easy
+- *Backward Compatibility:* Test written with JUnit 3 and 4 should still run
+- *Forward Compatibility:* Old IDEs and build tools should be able to execute new tests
 
 ---
 
