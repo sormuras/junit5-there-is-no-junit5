@@ -490,11 +490,10 @@ Stream<DynamicTest> checkAllTextFiles() throws Exception {
 | ------- | ------- |
 | Via limiting `parameterized` runner | `@ParameterizedTest` in dedicated artifact |
 
-- `@ParameterizedTest` with different `@Source` annotations
-  - `@ValueSource`, `@EnumSource`
-  - `@CsvSource`, `@CsvFileSource`
-  - `@MethodSource`, `@ArgumentsSource(MyProvider.class)`
-  - `@YourCustomSource`
+- `@ValueSource`, `@EnumSource`
+- `@CsvSource`, `@CsvFileSource`
+- `@MethodSource`, `@ArgumentsSource(Provider.class)`
+- `@YourCustomSource`
 
 <small>📜 [Parameterized Tests](https://junit.org/junit5/docs/current/user-guide/#writing-tests-parameterized-tests)</small>
 
@@ -502,7 +501,7 @@ Stream<DynamicTest> checkAllTextFiles() throws Exception {
 
 ### Parallel Execution
 
-- Set `junit.jupiter.execution.parallel.enabled` to `true`
+- Set <small>`junit.jupiter.execution.parallel.enabled`</small> to `true`
 - Parallel! 🚀
 
 <small>📜 [Parallel Execution](https://junit.org/junit5/docs/current/user-guide/#writing-tests-parallel-execution)</small>
