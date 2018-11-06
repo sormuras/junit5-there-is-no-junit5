@@ -428,7 +428,7 @@ void mySecondTest() {...}
 ```
 @[1-2](Multiple tags)
 @[3](Mark as test)
-@[6-7](Use your meta-annotation)
+@[6-7](Use your composed annotation)
 @[1-7]
 
 +++
@@ -443,7 +443,7 @@ void mySecondTest() {...}
 
 ### Gathering, Grouping, Nesting
 
-- Non-static test class (i.e., an inner class) that can share setup and state with an instance of its enclosing class
+- Non-static nested test class (i.e., an inner class) that can share setup and state with an instance of its enclosing class
 
 <small>📜 [Nested Tests](https://junit.org/junit5/docs/current/user-guide/#writing-tests-nested)</small>
 
@@ -474,10 +474,13 @@ Stream<DynamicTest> checkAllTextFiles() throws Exception {
 - `@RepeatedTest` specifying the total number of repetitions desired
 
 ```java
-	@RepeatedTest(value = 5, name = "Wiederholung {currentRepetition} von {totalRepetitions}")
-	void repeatedTestInGerman() {
-		// ...
-	}
+@RepeatedTest(10)
+void repeatedTest() {}
+
+@RepeatedTest(5)
+void repeatedTestWithRepetitionInfo(RepetitionInfo info) {
+	assertEquals(5, info.getTotalRepetitions());
+}
 ```
 
 <small>📜 [Repeated Tests](https://junit.org/junit5/docs/current/user-guide/#writing-tests-repeated-tests)</small>
@@ -488,7 +491,7 @@ Stream<DynamicTest> checkAllTextFiles() throws Exception {
 
 | JUnit 4 | Jupiter |
 | ------- | ------- |
-| Via limiting `parameterized` runner | `@ParameterizedTest` in dedicated artifact |
+| Via limiting `Parameterized` runner | `@ParameterizedTest` in dedicated artifact |
 
 - `@ValueSource`, `@EnumSource`
 - `@CsvSource`, `@CsvFileSource`
@@ -523,13 +526,13 @@ Stream<DynamicTest> checkAllTextFiles() throws Exception {
 - Bug Fixes
 - Display Name Generator
 - Test Kit
+- Order Sequence of Tests [#13](https://github.com/junit-team/junit5/issues/13)
 
 +++
 
 ## Future
 
 - New reporting format [opentest4j: #9](https://github.com/ota4j-team/opentest4j/issues/9)
-- Order Sequence of Tests [#13](https://github.com/junit-team/junit5/issues/13)
 - Scenario Tests [#48](https://github.com/junit-team/junit5/issues/48)
 - Declarative Test Suites [theme: suites](https://github.com/junit-team/junit5/labels/theme%3A%20suites)
 - Parameterized Classes [#871](https://github.com/junit-team/junit5/issues/871)
