@@ -474,11 +474,13 @@ For a detailed description consult the [Parallel Execution](https://junit.org/ju
 
 ## Important Future Milestones
   
-  - New reporting format thats supports new features
-  - Declarative Test Suites
-  - Parameterized Classes
-  - Scenario Tests
+  - New reporting format [opentest4j: #9](https://github.com/ota4j-team/opentest4j/issues/9)
+  - Declarative Test Suites [theme: suites](https://github.com/junit-team/junit5/labels/theme%3A%20suites)
+  - Parameterized Classes [#871](https://github.com/junit-team/junit5/issues/871)
+  - Scenario Tests [#48](https://github.com/junit-team/junit5/issues/48)
   - _Your ideas?_
+
++++
 
 ## Take Away
 
@@ -490,11 +492,11 @@ For a detailed description consult the [Parallel Execution](https://junit.org/ju
 # Thanks
 #### Happy testing!
 
-Support JUnit: https://steadyhq.com/en/junit
+Support JUnit<br>https://steadyhq.com/en/junit
 
 <small>
-[@sormuras](https://twitter.com/sormuras)<br>
-[sormuras.github.io](https://sormuras.github.io)<br>
-[junit5-there-is-no-junit5](https://github.com/sormuras/junit5-there-is-no-junit5)<br>
-[slack jvm-german #jug-bonn](bit.ly/jvmg-invite)<br>
+_twitter_ [@sormuras](https://twitter.com/sormuras)<br>
+_blog_ [sormuras.github.io](https://sormuras.github.io)<br>
+_slides_ [junit5-there-is-no-junit5](https://github.com/sormuras/junit5-there-is-no-junit5)<br>
+_slack_ [slack jvm-german #jug-bonn](bit.ly/jvmg-invite)<br>
 </small> 
