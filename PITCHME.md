@@ -86,8 +86,8 @@ JUnit 4 ships as a single artifact.
 ## Design Goals
 
 - *Flexibility:* Adding new features should be easy
-- *Backward Compatibility:* Test written with JUnit 3 and 4 should still run
-- *Forward Compatibility:* Old IDEs and build tools should be able to execute new tests
+- *Backward Compatibility:* Old tests should still run
+- *Forward Compatibility:* Tools should be able to execute _new_ tests
 
 ---
 
