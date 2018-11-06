@@ -49,12 +49,12 @@
 
 # Motivation
 
-- 👉 Motivation
+👉 Motivation<br>
 <small>
-- Architecture
-- Live Coding
-- Concept Comparison
-- Outlook
+Architecture<br>
+Live Coding<br>
+Concept Comparison<br>
+Outlook<br>
 </small>
 
 +++
@@ -93,13 +93,13 @@ JUnit 4 ships as a single artifact.
 # Architecture
 
 <small>
-- Motivation
+Motivation<br>
 </small>
-- 👉 Architecture
+👉 Architecture
 <small>
-- Live Coding
-- Concept Comparison
-- Outlook
+Live Coding<br>
+Concept Comparison<br>
+Outlook
 </small>
 
 +++
