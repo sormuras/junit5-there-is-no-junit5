@@ -352,10 +352,10 @@ Basic stuff is basic. Commonly.
 
 | JUnit 4 | Jupiter |
 | ------- | ------- |
-| [`BeforeClass`](https://junit.org/junit4/javadoc/latest/org/junit/BeforeClass.html) | [`BeforeAll`](https://junit.org/junit5/docs/current/api/org/junit/jupiter/api/BeforeAll.html) |
-| [`Before`](https://junit.org/junit4/javadoc/latest/org/junit/Before.html) | [`BeforeEach`](https://junit.org/junit5/docs/current/api/org/junit/jupiter/api/BeforeEach.html) |
-| [`After`](https://junit.org/junit4/javadoc/latest/org/junit/After.html) | [`AfterEach`](https://junit.org/junit5/docs/current/api/org/junit/jupiter/api/AfterEach.html) |
-| [`AfterClass`](https://junit.org/junit4/javadoc/latest/org/junit/AfterClass.html) | [`AfterAll`](https://junit.org/junit5/docs/current/api/org/junit/jupiter/api/AfterAll.html) |
+| [`@BeforeClass`](https://junit.org/junit4/javadoc/latest/org/junit/BeforeClass.html) | [`@BeforeAll`](https://junit.org/junit5/docs/current/api/org/junit/jupiter/api/BeforeAll.html) |
+| [`@Before`](https://junit.org/junit4/javadoc/latest/org/junit/Before.html) | [`@BeforeEach`](https://junit.org/junit5/docs/current/api/org/junit/jupiter/api/BeforeEach.html) |
+| [`@After`](https://junit.org/junit4/javadoc/latest/org/junit/After.html) | [`@AfterEach`](https://junit.org/junit5/docs/current/api/org/junit/jupiter/api/AfterEach.html) |
+| [`@AfterClass`](https://junit.org/junit4/javadoc/latest/org/junit/AfterClass.html) | [`@AfterAll`](https://junit.org/junit5/docs/current/api/org/junit/jupiter/api/AfterAll.html) |
 
 +++
 
@@ -379,100 +379,169 @@ Changed, evolved, matured.
 
 ### Test Instance Lifecycle
 
-In order to allow individual test methods to be executed in isolation and to avoid unexpected side effects due to mutable test instance state, JUnit creates a new instance of each test class before executing each test method.
-This "per-method" test instance lifecycle is the default behavior in JUnit Jupiter and is analogous to all previous versions of JUnit, including JUnit 4.
-If you would prefer that JUnit Jupiter execute all test methods on the same test instance, simply annotate your test class with `@TestInstance(Lifecycle.PER_CLASS)`.
+| JUnit 4 | Jupiter |
+| ------- | ------- |
+| New test instance _per-method_ | `@TestInstance(Lifecycle.PER_METHOD)` or `@TestInstance(Lifecycle.PER_CLASS)` |
 
-- `org.junit.jupiter.api.TestInstance` _`@TestInstance` is a type-level annotation that is used to configure the lifecycle of test instances for the annotated test class or test interface._
-
-For a detailed description consult the [Test Instance Lifecycle](https://junit.org/junit5/docs/current/user-guide/#writing-tests-test-instance-lifecycle) chapter in the User-Guide.
+<small>📜 [Test Instance Lifecycle](https://junit.org/junit5/docs/current/user-guide/#writing-tests-test-instance-lifecycle)</small>
 
 +++
 
-### Extension Points
+### Extensions
 
-In contrast to the competing `Runner`, `@Rule`, and `@ClassRule` concepts in JUnit 4, the JUnit Jupiter extension model consists of a single, coherent concept: the [`Extension`](https://junit.org/junit5/docs/current/api/org/junit/jupiter/api/extension/package-summary.html) API.
+| JUnit 4 | Jupiter |
+| ------- | ------- |
+| Competing `Runner`, `@Rule`, and `@ClassRule` concepts | `Extension` marker interface |
 
-For a detailed description consult the [Extension Model](https://junit.org/junit5/docs/current/user-guide/#extensions) chapter in the User-Guide.
+- Lifecycle: `BeforeAllCallback`, `BeforeEachCallback`, `BeforeTestExecutionCallback`, `TestExecutionExceptionHandler`, `AfterTestExecutionCallback`, `AfterEachCallback`, `AfterAllCallback`
+- Other: `ExecutionCondition`, `TestInstanceFactory`, `TestInstancePostProcessor`, `ParameterResolver`, `TestTemplateInvocationContextProvider`
+
+<small>📜 [Extension Model](https://junit.org/junit5/docs/current/user-guide/#extensions)</small>
 
 +++
 
-## ✨ New Concepts
+## ✨ New Jupiter Concepts
 
-- REVOLUTION!
++++
+
+### Composed Annotations
+
+```java
+@Tag("fast")                     // file: FastSystemTest.java
+@Tag("system")
+@Test
+@interface FastSystemTest {}
+
+@FastSystemTest                  // file: FirstJupiterTests.java
+void mySecondTest() {...} 
+```
+@[1-2](Multiple tags)
+@[3](Mark as test)
+@[6-7](Use your meta-annotation)
+@[1-7]
 
 +++
 
 ### Messages
 
-In JUnit Jupiter you should use [`TestReporter`](https://junit.org/junit5/docs/current/api/org/junit/jupiter/api/TestReporter.html) where you used to print information to _stdout_ or _stderr_ in JUnit 4.
+- [`TestReporter`](https://junit.org/junit5/docs/current/api/org/junit/jupiter/api/TestReporter.html)
+- Print extra/contextual information
+- Don't use _stdout_ or _stderr_
 
 +++
 
 ### Gathering, Grouping, Nesting
 
-Nested tests give the test writer more capabilities to express the relationship among several group of tests.
+- `@Nested`
+- non-static test class (i.e., an inner class) that can share setup and state with an instance of its enclosing class
 
-- `org.junit.jupiter.api.Nested` _`@Nested` is used to signal that the annotated class is a nested, non-static test class (i.e., an inner class) that can share setup and state with an instance of its enclosing class._
-
-For a detailed description consult the [Nested Tests](https://junit.org/junit5/docs/current/user-guide/#writing-tests-nested) chapter in the User-Guide.
+<small>📜 [Nested Tests](https://junit.org/junit5/docs/current/user-guide/#writing-tests-nested)</small>
 
 +++
 
 ### Testlets
 
-A new kind of test is a dynamic test which is generated at runtime by a factory method that is annotated with `@TestFactory`.
+- Generate "tests" at runtime
 
+<small>
 - `org.junit.jupiter.api.TestFactory` _@TestFactory is used to signal that the annotated method is a test factory method._
 - `org.junit.jupiter.api.DynamicNode` _DynamicNode serves as the abstract base class for a container or a test case generated at runtime._
 - `org.junit.jupiter.api.DynamicContainer` _A DynamicContainer is a container generated at runtime._
 - `org.junit.jupiter.api.DynamicTest` _A DynamicTest is a test case generated at runtime._
+</small>
 
-For a detailed description consult the [Dynamic Tests](https://junit.org/junit5/docs/current/user-guide/#writing-tests-dynamic-tests) chapter in the User-Guide.
+<small>📜 [Dynamic Tests](https://junit.org/junit5/docs/current/user-guide/#writing-tests-dynamic-tests)</small>
 
 +++
 
 ### Test Templates
 
-A `@TestTemplate` method is not a regular test case but rather a template for test cases.
-As such, it is designed to be invoked multiple times depending on the number of invocation contexts returned by the registered providers.
-Thus, it must be used in conjunction with a registered `TestTemplateInvocationContextProvider` extension.
-Each invocation of a test template method behaves like the execution of a regular `@Test` method with full support for the same lifecycle callbacks and extensions.
+- `@TestTemplate` method is not a regular test case but rather a template for test cases
+- Used in conjunction with a registered `TestTemplateInvocationContextProvider` extension
+- Each invocation of a test template method behaves like the execution of a regular `@Test` method
+- Full support for the same lifecycle callbacks and extensions
 
-Copied over from [Test Templates](https://junit.org/junit5/docs/current/user-guide/#writing-tests-test-templates)
+<small>📜 [Test Templates](https://junit.org/junit5/docs/current/user-guide/#writing-tests-test-templates)</small>
 
 +++
 
 ### Repetitions (via Test Templates)
 
-JUnit Jupiter provides the ability to repeat a test a specified number of times simply by annotating a method with `@RepeatedTest` and specifying the total number of repetitions desired.
-
+- `@RepeatedTest` specifying the total number of repetitions desired
+<small>
 - `org.junit.jupiter.api.RepeatedTest` _`@RepeatedTest` is used to signal that the annotated method is a test template method that should be repeated a specified number of times with a configurable display name._
 - `org.junit.jupiter.api.RepetitionInfo` _`RepetitionInfo` is used to inject information about the current repetition of a repeated test into `@RepeatedTest`, `@BeforeEach`, and `@AfterEach` methods._
+</small>
 
-For a detailed description consult the [Repeated Tests](https://junit.org/junit5/docs/current/user-guide/#writing-tests-repeated-tests) chapter in the User-Guide.
+<small>📜 [Repeated Tests](https://junit.org/junit5/docs/current/user-guide/#writing-tests-repeated-tests)</small>
 
 +++
 
 ### Parameterized Tests (via Test Templates)
 
-In JUnit 4 a limiting runner was needed from package `org.junit.runners.parameterized`.
+| JUnit 4 | Jupiter |
+| ------- | ------- |
+| Limiting runner in package `org.junit.runners.parameterized` | `@ParameterizedTest` from module `org.junit.jupiter.params` |
 
-In JUnit Jupiter parameterized tests are implemented as a test template extension.
-The API resides in its own dedicated module: `org.junit.jupiter.params`
-Be sure to include it in your test compile dependencies.
+- In JUnit Jupiter parameterized tests are implemented as a test template extension
+- `@ParameterizedTest` with different `@Source` annotations
+  - `@ValueSource`, `@EnumSource`
+  - `@CsvSource`, `@CsvFileSource`
+  - `@MethodSource`, `@ArgumentsSource(MyProvider.class)`
+  - `@YourCustomSource`
 
-For a detailed description consult the [Parameterized Tests](https://junit.org/junit5/docs/current/user-guide/#writing-tests-parameterized-tests) chapter in the User-Guide.
+<small>📜 [Parameterized Tests](https://junit.org/junit5/docs/current/user-guide/#writing-tests-parameterized-tests)</small>
 
 +++
 
 ### Parallel Execution
 
-JUnit Jupiter API for influencing parallel test execution.
+- Set `junit.jupiter.execution.parallel.enabled` to `true`
+- Parallel! 🚀
 
-- [org.junit.jupiter.api.parallel](https://junit.org/junit5/docs/current/api/org/junit/jupiter/api/parallel/package-summary.html)
+<small>📜 [Parallel Execution](https://junit.org/junit5/docs/current/user-guide/#writing-tests-parallel-execution)</small>
 
-For a detailed description consult the [Parallel Execution](https://junit.org/junit5/docs/current/user-guide/#writing-tests-parallel-execution) chapter in the User-Guide.
+---
+
+# Jupiter Feature Summary
+
++++
+
+## Jupiter Features 1
+<br>
+
+@ul
+
+- Basic Annotations - *`@Test`*
+- Meta-Annotations - *`@FastSystemTest`*
+- Display Names - *Emojis! 😎 🐌* @note[Spaces in names...]
+- Tagging and Filtering
+- Assertions @note[Use external assertion libs. They are good!]
+- Assumptions
+- Disabling Tests
+- Conditional Test Execution
+
+@ulend
+
++++
+
+## Jupiter Features 2
+<br>
+
+@ul
+
+- Test Instance Lifecycle
+- Nested Tests
+- Dependency Injection
+- Test Interfaces
+- Repeated Tests - 🔂
+- Dynamic Tests
+- Test Templates
+- Parameterized Tests - ✨
+
+@ulend
+
++++
 
 ---
 
