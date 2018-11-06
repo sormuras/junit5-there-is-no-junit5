@@ -255,8 +255,11 @@ Specsy, Spek, KotlinTest, Cucumber, Drools, jqwik, ...
 
 ## Build Tool Support
 
-- Native support in Gradle (≥ 4.6), Ant (≥ 1.10.3), and Maven Surefire (≥ 2.22.0)
-- `ConsoleLauncher` to run tests from the command line or to support other build tools (e.g. Bazel)
+- Native support in
+  - **Ant** (≥ 1.10.3)
+  - **Gradle** (≥ 4.6)
+  - **Maven** Surefire (≥ 2.22.0)
+- **`ConsoleLauncher`** to run tests from the command line or to support other build tools (e.g. Bazel)
 
 --- 
 
@@ -483,18 +486,18 @@ For a detailed description consult the [Parallel Execution](https://junit.org/ju
 ## Future
 
 - New reporting format [opentest4j: #9](https://github.com/ota4j-team/opentest4j/issues/9)
-- Order Sequence of Tests
+- Order Sequence of Tests [#13](https://github.com/junit-team/junit5/issues/13)
+- Scenario Tests [#48](https://github.com/junit-team/junit5/issues/48)
 - Declarative Test Suites [theme: suites](https://github.com/junit-team/junit5/labels/theme%3A%20suites)
 - Parameterized Classes [#871](https://github.com/junit-team/junit5/issues/871)
-- Scenario Tests [#48](https://github.com/junit-team/junit5/issues/48)
 - _Your ideas?_
 
 +++
 
 ## Take Away
 
-* There is no JUnit 5...
-* Use JUnit 5! ✅
+- There is no JUnit 5...
+- Use JUnit 5! ✅
 
 +++
 
