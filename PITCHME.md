@@ -314,7 +314,6 @@ Basic stuff is basic. Commonly.
 | [`@Test`](https://junit.org/junit4/javadoc/latest/org/junit/Test.html)  | [`@Test`](https://junit.org/junit5/docs/current/api/org/junit/jupiter/api/Test.html)  |
 | The `Test` annotation tells JUnit that the `public void` method ... | `@Test` is used to signal that the annotated method is a test. |
 
-<small>The `expected` and `timeout` annotation elements of `org.junit.Test` are handled by dedicated **Jupiter** assertions.</small>
  
 +++ 
  
@@ -324,7 +323,17 @@ Basic stuff is basic. Commonly.
 | ------- | ------- |
 | [`Assert`](https://junit.org/junit4/javadoc/latest/org/junit/Assert.html) | [`Assertions`](https://junit.org/junit5/docs/current/api/org/junit/jupiter/api/Assertions.html) |
 | A set of assertion methods useful for writing tests. | `Assertions` is a collection of utility methods that support asserting conditions in tests. |
-| <small>`assertEquals(message, expected, actual)`</small> | <small>`assertEquals(expected, actual, message)`</small> |
+
++++
+
+### Jupiter Assertions
+
+- `expected` and `timeout` elements of `org.junit.Test` are handled by dedicated assertions
+  - `assertThrows()`
+  - `assertTimeout()`
+- Message moved: `assertEquals(expected, actual, message)`
+- `assertAll()`
+- `assertLinesMatch()`
 
 +++
 
@@ -370,7 +379,7 @@ Changed, evolved, matured.
 | JUnit 4 | Jupiter |
 | ------- | ------- |
 | [`@Category`](https://github.com/junit-team/junit4/wiki/Categories) | [`@Tag`](https://junit.org/junit5/docs/current/api/org/junit/jupiter/api/Tag.html) |
-| `@RunWith(Categories.class)` runner and marker interfaces. | Simple `String`s as markers, [Tag Expressions](https://junit.org/junit5/docs/current/user-guide/#running-tests-tag-expressions) at Platform level. |
+| `Categories` runner and marker interfaces | Plain `String`s as markers, [Tag Expressions](https://junit.org/junit5/docs/current/user-guide/#running-tests-tag-expressions) at Platform level. |
 
 
 <small>📜 [Tagging and Filtering](https://junit.org/junit5/docs/current/user-guide/#writing-tests-tagging-and-filtering)</small>
@@ -381,7 +390,7 @@ Changed, evolved, matured.
 
 | JUnit 4 | Jupiter |
 | ------- | ------- |
-| New test instance _per-method_ | `@TestInstance(Lifecycle.PER_METHOD)` or `@TestInstance(Lifecycle.PER_CLASS)` |
+| New test instance _per-method_ | `@TestInstance` with `Lifecycle.PER_METHOD` or `Lifecycle.PER_CLASS` |
 
 <small>📜 [Test Instance Lifecycle](https://junit.org/junit5/docs/current/user-guide/#writing-tests-test-instance-lifecycle)</small>
 
@@ -393,8 +402,10 @@ Changed, evolved, matured.
 | ------- | ------- |
 | Competing `Runner`, `@Rule`, and `@ClassRule` concepts | `Extension` marker interface |
 
+<small>
 - Lifecycle: `BeforeAllCallback`, `BeforeEachCallback`, `BeforeTestExecutionCallback`, `TestExecutionExceptionHandler`, `AfterTestExecutionCallback`, `AfterEachCallback`, `AfterAllCallback`
 - Other: `ExecutionCondition`, `TestInstanceFactory`, `TestInstancePostProcessor`, `ParameterResolver`, `TestTemplateInvocationContextProvider`
+</small>
 
 <small>📜 [Extension Model](https://junit.org/junit5/docs/current/user-guide/#extensions)</small>
 
@@ -432,8 +443,7 @@ void mySecondTest() {...}
 
 ### Gathering, Grouping, Nesting
 
-- `@Nested`
-- non-static test class (i.e., an inner class) that can share setup and state with an instance of its enclosing class
+- Non-static test class (i.e., an inner class) that can share setup and state with an instance of its enclosing class
 
 <small>📜 [Nested Tests](https://junit.org/junit5/docs/current/user-guide/#writing-tests-nested)</small>
 
@@ -443,35 +453,32 @@ void mySecondTest() {...}
 
 - Generate "tests" at runtime
 
-<small>
-- `org.junit.jupiter.api.TestFactory` _@TestFactory is used to signal that the annotated method is a test factory method._
-- `org.junit.jupiter.api.DynamicNode` _DynamicNode serves as the abstract base class for a container or a test case generated at runtime._
-- `org.junit.jupiter.api.DynamicContainer` _A DynamicContainer is a container generated at runtime._
-- `org.junit.jupiter.api.DynamicTest` _A DynamicTest is a test case generated at runtime._
-</small>
+```java
+@TestFactory
+Stream<DynamicTest> checkAllTextFiles() throws Exception {
+  return Files.walk(Paths.get("demo/test/jump"), 1)
+      .filter(path -> path.toString().endsWith(".txt"))
+      .map(path -> dynamicTest(
+              "Checking file '" + path.getFileName() + "'",
+              path.toUri(), // test source uri
+              () -> checkLines(path)));
+}
+```
 
 <small>📜 [Dynamic Tests](https://junit.org/junit5/docs/current/user-guide/#writing-tests-dynamic-tests)</small>
-
-+++
-
-### Test Templates
-
-- `@TestTemplate` method is not a regular test case but rather a template for test cases
-- Used in conjunction with a registered `TestTemplateInvocationContextProvider` extension
-- Each invocation of a test template method behaves like the execution of a regular `@Test` method
-- Full support for the same lifecycle callbacks and extensions
-
-<small>📜 [Test Templates](https://junit.org/junit5/docs/current/user-guide/#writing-tests-test-templates)</small>
 
 +++
 
 ### Repetitions (via Test Templates)
 
 - `@RepeatedTest` specifying the total number of repetitions desired
-<small>
-- `org.junit.jupiter.api.RepeatedTest` _`@RepeatedTest` is used to signal that the annotated method is a test template method that should be repeated a specified number of times with a configurable display name._
-- `org.junit.jupiter.api.RepetitionInfo` _`RepetitionInfo` is used to inject information about the current repetition of a repeated test into `@RepeatedTest`, `@BeforeEach`, and `@AfterEach` methods._
-</small>
+
+```java
+	@RepeatedTest(value = 5, name = "Wiederholung {currentRepetition} von {totalRepetitions}")
+	void repeatedTestInGerman() {
+		// ...
+	}
+```
 
 <small>📜 [Repeated Tests](https://junit.org/junit5/docs/current/user-guide/#writing-tests-repeated-tests)</small>
 
@@ -481,9 +488,8 @@ void mySecondTest() {...}
 
 | JUnit 4 | Jupiter |
 | ------- | ------- |
-| Limiting runner in package `org.junit.runners.parameterized` | `@ParameterizedTest` from module `org.junit.jupiter.params` |
+| Via limiting `parameterized` runner | `@ParameterizedTest` in dedicated artifact |
 
-- In JUnit Jupiter parameterized tests are implemented as a test template extension
 - `@ParameterizedTest` with different `@Source` annotations
   - `@ValueSource`, `@EnumSource`
   - `@CsvSource`, `@CsvFileSource`
@@ -500,48 +506,6 @@ void mySecondTest() {...}
 - Parallel! 🚀
 
 <small>📜 [Parallel Execution](https://junit.org/junit5/docs/current/user-guide/#writing-tests-parallel-execution)</small>
-
----
-
-# Jupiter Feature Summary
-
-+++
-
-## Jupiter Features 1
-<br>
-
-@ul
-
-- Basic Annotations - *`@Test`*
-- Meta-Annotations - *`@FastSystemTest`*
-- Display Names - *Emojis! 😎 🐌* @note[Spaces in names...]
-- Tagging and Filtering
-- Assertions @note[Use external assertion libs. They are good!]
-- Assumptions
-- Disabling Tests
-- Conditional Test Execution
-
-@ulend
-
-+++
-
-## Jupiter Features 2
-<br>
-
-@ul
-
-- Test Instance Lifecycle
-- Nested Tests
-- Dependency Injection
-- Test Interfaces
-- Repeated Tests - 🔂
-- Dynamic Tests
-- Test Templates
-- Parameterized Tests - ✨
-
-@ulend
-
-+++
 
 ---
 
