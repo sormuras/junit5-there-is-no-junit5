@@ -21,10 +21,12 @@
 
 <small>
 @ul
+
 - Support: https://steadyhq.com/en/junit
 - Slides: https://github.com/sormuras/junit5-there-is-no-junit5
 - Slack: `jvm-german` Channel: `#jug-bonn` https://bit.ly/jvmg-invite
 - EntwickelBar: https://entwickelbar.github.io/ am 24. November
+
 @ulend
 </small>
 
@@ -34,10 +36,13 @@
 ## Agenda
 
 @ul
+
 - Motivation
 - Architecture
-- **API** Comparison
-- Jupiter **Live Coding**
+- Live Coding
+- Concept Comparison
+- Outlook
+
 @ulend
 
 ---
@@ -224,15 +229,35 @@ Specsy, Spek, KotlinTest, Cucumber, Drools, jqwik, ...
 
 ![JUnit 5 Architecture](https://github.com/sormuras/testing-in-the-modular-world/raw/master/img/junit5-architecture-1.png)
 
++++
+
+## IDE Support
+
+- Excellent support
+  - IntelliJ IDEA (≥ 2016.2)
+  - Eclipse (≥ 4.7.1a)
+  - Visual Studio Code (Java Test Runner ≥ 0.4.0)
+  - Netbeans (will come with 10.0)
+- For other tools, there's `@RunWith(JUnitPlatform)`
+
++++
+
+## Build Tool Support
+
+- Native support in Gradle (≥ 4.6), Ant (≥ 1.10.3), and Maven Surefire (≥ 2.22.0)
+- `ConsoleLauncher` to run tests from the command line or to support other build tools (e.g. Bazel)
+
 --- 
 
-# JUnit API Evolution
+# Live Coding
+
+--- 
+
+# Concept Comparison
 
 +++
 
 ## JUnit 4 | Jupiter
-
-High-level concept & API comparison
 
 | JUnit 4 | Jupiter |
 | :-----: | :-----: |
@@ -252,7 +277,7 @@ Basic stuff is basic. Commonly.
 | JUnit 4 | Jupiter |
 | ------- | ------- |
 | [`@Test`](https://junit.org/junit4/javadoc/latest/org/junit/Test.html)  | [`@Test`](https://junit.org/junit5/docs/current/api/org/junit/jupiter/api/Test.html)  |
-| _The `Test` annotation tells JUnit that the `public void` method ..._ | _`@Test` is used to signal that the annotated method is a test._ |
+| The `Test` annotation tells JUnit that the `public void` method ... | `@Test` is used to signal that the annotated method is a test. |
 
 <small>The `expected` and `timeout` annotation elements of `org.junit.Test` are handled by dedicated **Jupiter** assertions.</small>
  
@@ -263,7 +288,7 @@ Basic stuff is basic. Commonly.
 | JUnit 4 | Jupiter |
 | ------- | ------- |
 | [`Assert`](https://junit.org/junit4/javadoc/latest/org/junit/Assert.html) | [`Assertions`](https://junit.org/junit5/docs/current/api/org/junit/jupiter/api/Assertions.html) |
-| _A set of assertion methods useful for writing tests._ | _`Assertions` is a collection of utility methods that support asserting conditions in tests._ |
+| A set of assertion methods useful for writing tests. | `Assertions` is a collection of utility methods that support asserting conditions in tests. |
 | `assertEquals(message, expected, actual)` | `assertEquals(expected, actual, message)` |
 
 +++
@@ -273,7 +298,7 @@ Basic stuff is basic. Commonly.
 | JUnit 4 | Jupiter |
 | ------- | ------- |
 | [`@Ignore`](https://junit.org/junit4/javadoc/latest/org/junit/Ignore.html) | [`@Disabled`](https://junit.org/junit5/docs/current/api/org/junit/jupiter/api/Disabled.html) |
-| _Disable a test or a group of tests._ | _`@Disabled` is used to signal that the annotated test class or test method is currently disabled._ |
+| Disable a test or a group of tests. | `@Disabled` is used to signal that the annotated test class or test method is currently disabled. |
 
 +++
 
@@ -282,7 +307,7 @@ Basic stuff is basic. Commonly.
 | JUnit 4 | Jupiter |
 | ------- | ------- |
 | [`Assume`](https://junit.org/junit4/javadoc/latest/org/junit/Assume.html) | [`Assumptions`](https://junit.org/junit5/docs/current/api/org/junit/jupiter/api/Assumptions.html) |
-| _A set of methods useful for stating assumptions about the conditions in which a test is meaningful._ | _`Assumptions` is a collection of utility methods that support conditional test execution based on assumptions._ |
+| Stating assumptions about the conditions in which a test is meaningful. | `Assumptions` support conditional test execution based on assumptions. |
 
 <small>Annotation-based conditions for enabling or disabling tests in **Jupiter** [org.junit.jupiter.api.condition](https://junit.org/junit5/docs/current/api/org/junit/jupiter/api/condition/package-summary.html)</small>
 
@@ -412,13 +437,21 @@ JUnit Jupiter API for influencing parallel test execution.
 
 For a detailed description consult the [Parallel Execution](https://junit.org/junit5/docs/current/user-guide/#writing-tests-parallel-execution) chapter in the User-Guide.
 
---- 
-
-# Jupiter Live Coding
-
 ---
 
-# Take-away
+# Outlook
+
++++
+
+## Important Future Milestones
+  
+  - New reporting format thats supports new features
+  - Declarative Test Suites
+  - Parameterized Classes
+  - Scenario Tests
+  - _Your ideas?_
+
+## Take Away
 
 * There is no JUnit 5...
 * Use JUnit 5! ✅
@@ -431,8 +464,8 @@ For a detailed description consult the [Parallel Execution](https://junit.org/ju
 Support JUnit: https://steadyhq.com/en/junit
 
 <small>
-[@sormuras](https://twitter.com/sormuras)
-[sormuras.github.io](https://sormuras.github.io)
-[junit5-there-is-no-junit5](https://github.com/sormuras/junit5-there-is-no-junit5)
-[slack jvm-german #jug-bonn](bit.ly/jvmg-invite)
+[@sormuras](https://twitter.com/sormuras)<br>
+[sormuras.github.io](https://sormuras.github.io)<br>
+[junit5-there-is-no-junit5](https://github.com/sormuras/junit5-there-is-no-junit5)<br>
+[slack jvm-german #jug-bonn](bit.ly/jvmg-invite)<br>
 </small> 
