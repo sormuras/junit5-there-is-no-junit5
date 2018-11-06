@@ -492,8 +492,8 @@ Stream<DynamicTest> checkAllTextFiles() throws Exception {
 
 - `@ValueSource`, `@EnumSource`
 - `@CsvSource`, `@CsvFileSource`
-- `@MethodSource`, `@ArgumentsSource(Provider.class)`
-- `@YourCustomSource`
+- `@MethodSource`
+- `@ArgumentsSource(Provider.class)`
 
 <small>📜 [Parameterized Tests](https://junit.org/junit5/docs/current/user-guide/#writing-tests-parameterized-tests)</small>
 
@@ -501,7 +501,7 @@ Stream<DynamicTest> checkAllTextFiles() throws Exception {
 
 ### Parallel Execution
 
-- Set <small>`junit.jupiter.execution.parallel.enabled`</small> to `true`
+- <small>Set `junit.jupiter.execution.parallel.enabled` to `true`</small>
 - Parallel! 🚀
 
 <small>📜 [Parallel Execution](https://junit.org/junit5/docs/current/user-guide/#writing-tests-parallel-execution)</small>
