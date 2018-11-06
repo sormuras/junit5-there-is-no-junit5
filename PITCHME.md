@@ -23,9 +23,9 @@
 @ul
 
 - Support: https://steadyhq.com/en/junit
-- Slides: https://github.com/sormuras/junit5-there-is-no-junit5
-- Slack: `jvm-german` Channel: `#jug-bonn` https://bit.ly/jvmg-invite
-- EntwickelBar: https://entwickelbar.github.io/ am 24. November
+- Java 11: https://jdk.java.net/11
+- Slack: `jvm-german` `#jug-bonn` https://bit.ly/jvmg-invite
+- Unconference: https://entwickelbar.github.io am 24. November
 
 @ulend
 </small>
@@ -49,13 +49,11 @@
 
 # Motivation
 
-👉 Motivation<br>
-<small>
-Architecture<br>
-Live Coding<br>
-Concept Comparison<br>
-Outlook<br>
-</small>
+- 👉 **Motivation**
+- Architecture
+- Live Coding
+- Concept Comparison
+- Outlook
 
 +++
 
@@ -92,15 +90,11 @@ JUnit 4 ships as a single artifact.
 
 # Architecture
 
-<small>
-Motivation<br>
-</small>
-👉 Architecture
-<small>
-Live Coding<br>
-Concept Comparison<br>
-Outlook
-</small>
+- Motivation
+- 👉 **Architecture**
+- Live Coding
+- Concept Comparison
+- Outlook
 
 +++
 
@@ -268,29 +262,21 @@ Specsy, Spek, KotlinTest, Cucumber, Drools, jqwik, ...
 
 # Live Coding
 
-<small>
 - Motivation
 - Architecture
-</small>
-- 👉 Live Coding
-<small>
+- 👉 **Live Coding**
 - Concept Comparison
 - Outlook
-</small>
 
 --- 
 
 # Concept Comparison
 
-<small>
 - Motivation
 - Architecture
 - Live Coding
-</small>
-- 👉 Concept Comparison
-<small>
+- 👉 **Concept Comparison**
 - Outlook
-</small>
 
 +++
 
@@ -478,13 +464,11 @@ For a detailed description consult the [Parallel Execution](https://junit.org/ju
 
 # Outlook
 
-<small>
 - Motivation
 - Architecture
 - Live Coding
 - Concept Comparison
-</small>
-- 👉 Outlook
+- 👉 **Outlook**
 
 +++
 
