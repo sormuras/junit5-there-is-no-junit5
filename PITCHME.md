@@ -55,7 +55,7 @@
 - Live Coding
 - Concept Comparison
 - Outlook
-<small>
+</small>
 
 +++
 
@@ -91,6 +91,16 @@ JUnit 4 ships as a single artifact.
 ---
 
 # Architecture
+
+<small>
+- Motivation
+</small>
+- 👉 Architecture
+<small>
+- Live Coding
+- Concept Comparison
+- Outlook
+</small>
 
 +++
 
@@ -258,9 +268,29 @@ Specsy, Spek, KotlinTest, Cucumber, Drools, jqwik, ...
 
 # Live Coding
 
+<small>
+- Motivation
+- Architecture
+</small>
+- 👉 Live Coding
+<small>
+- Concept Comparison
+- Outlook
+</small>
+
 --- 
 
 # Concept Comparison
+
+<small>
+- Motivation
+- Architecture
+- Live Coding
+</small>
+- 👉 Concept Comparison
+<small>
+- Outlook
+</small>
 
 +++
 
@@ -447,6 +477,14 @@ For a detailed description consult the [Parallel Execution](https://junit.org/ju
 ---
 
 # Outlook
+
+<small>
+- Motivation
+- Architecture
+- Live Coding
+- Concept Comparison
+</small>
+- 👉 Outlook
 
 +++
 
