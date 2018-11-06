@@ -49,6 +49,14 @@
 
 # Motivation
 
+- 👉 Motivation
+<small>
+- Architecture
+- Live Coding
+- Concept Comparison
+- Outlook
+<small>
+
 +++
 
 ## There is **no** JUnit 5
@@ -82,7 +90,6 @@ JUnit 4 ships as a single artifact.
 
 ---
 
-#### JUnit 5
 # Architecture
 
 +++
@@ -138,7 +145,7 @@ JUnit 4 ships as a single artifact.
 
 +++
 
-#### `TestEngine`☑ interface
+#### Test Engine Interface
 
 ```java
 package org.junit.platform.engine;
