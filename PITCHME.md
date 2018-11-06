@@ -328,10 +328,9 @@ Basic stuff is basic. Commonly.
 
 ### Jupiter Assertions
 
-- `expected` and `timeout` elements of `org.junit.Test` are handled by dedicated assertions
-  - `assertThrows()`
-  - `assertTimeout()`
-- Message moved: `assertEquals(expected, actual, message)`
+- `assertThrows()` was `@Test(expected=...)`
+- `assertTimeout()` was `@Test(timeout=...)`
+- `assertEquals(expected, actual, message)`
 - `assertAll()`
 - `assertLinesMatch()`
 
