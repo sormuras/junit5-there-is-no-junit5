@@ -1,10 +1,9 @@
 @title[JUnit 5 - Platform & Jupiter API]
 # JUnit 5
 ## Platform & Jupiter API
-<br/>
-<br/>
 
-<a href="https://www.micromata.de"><img src="https://github.com/sormuras/testing-in-the-modular-world/raw/master/img/micromata-logo.png" height="80" /></a>
+<a href="https://www.micromata.de"><img src="https://github.com/sormuras/testing-in-the-modular-world/raw/master/img/micromata-logo.png" height="80" /></a><br>
+M I C R O M A T A
 
 <a href="https://junit.org/junit5"><img src="https://github.com/sormuras/testing-in-the-modular-world/raw/master/img/junit5-logo.png" height="80" /></a>
 &nbsp;
