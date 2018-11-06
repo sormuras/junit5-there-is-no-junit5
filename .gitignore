@@ -1,0 +1,10 @@
+# Folders
+.gradle/
+.idea/
+.settings/
+build/
+
+# Files
+.classpath
+.project
+*.iml
