@@ -101,14 +101,14 @@ JUnit 4 ships as a single artifact.
      .selectors(
         selectPackage("org.example.user"),
         selectClass("org.example.payment.PaymentTests"),
-        selectClass(ShippingTests.class),
-        selectMethod("org.example.order.OrderTests#test1"),
-        selectMethod("org.example.order.OrderTests#test2()"),
-        selectMethod("org.example.order.OrderTests", "test3"),
+        selectClasspathResource("/some/asset.txt"),
+        selectClasspathRoots(Set.of(Path.of("..."), Path...)),
+        selectDirectory("/home/user/tests"),
+        selectFile("./test.list"),
         selectMethod(OrderTests.class, "test4"),
-        selectMethod(OrderTests.class, testMethod),
+        selectModule("com.example.tool"),
         selectUniqueId("unique-id-1"),
-        selectUniqueId("unique-id-2")
+        selectUri("http://what-ever.abc")
      )
      .filters(
         includeEngines("junit-jupiter", "spek"),
@@ -126,7 +126,7 @@ JUnit 4 ships as a single artifact.
 @[2-13](Selectors)
 @[14-21](Filters)
 @[22-23](Custom configuration parameters)
-@[1-24]
+@[1]
 
 @ulend
 
@@ -307,7 +307,7 @@ Basic stuff is basic. Commonly.
 | JUnit 4 | Jupiter |
 | ------- | ------- |
 | [`@Ignore`](https://junit.org/junit4/javadoc/latest/org/junit/Ignore.html) | [`@Disabled`](https://junit.org/junit5/docs/current/api/org/junit/jupiter/api/Disabled.html) |
-| Disable a test or a group of tests. | `@Disabled` is used to signal that the annotated test class or test method is currently disabled. |
+| Disable a test or a group of tests. | `@Disabled` is used to signal that the annotated element is disabled. |
 
 +++
 
