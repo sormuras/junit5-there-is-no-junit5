@@ -126,7 +126,7 @@ JUnit 4 ships as a single artifact.
 @[2-13](Selectors)
 @[14-21](Filters)
 @[22-23](Custom configuration parameters)
-@[1]
+@[24](Build Discovery Request and...)
 
 @ulend
 
@@ -145,6 +145,10 @@ public interface TestEngine {
 
 }
 ```
+@[3](`TestEngine` interface)
+@[5](Discovery)
+@[7](Execution)
+@[1-9]
 
 +++
 
