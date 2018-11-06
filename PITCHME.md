@@ -18,29 +18,13 @@
 @title[Snapshots]
 ## Snapshots
 
-<small>
 @ul
 
-- Support: https://steadyhq.com/en/junit
+- Workshop JUnit 5: c.stein@micromata.de
+- Support JUnit: https://steadyhq.com/en/junit
 - Java 11: https://jdk.java.net/11
 - Slack: `jvm-german` `#jug-bonn` https://bit.ly/jvmg-invite
 - Unconference: https://entwickelbar.github.io am 24. November
-
-@ulend
-</small>
-
-+++
-
-@title[Agenda]
-## Agenda
-
-@ul
-
-- Motivation
-- Architecture
-- Live Coding
-- Concept Comparison
-- Outlook
 
 @ulend
 
