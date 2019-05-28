@@ -113,6 +113,28 @@ JUnit 4 ships as a single artifact.
 
 +++
 
+#### Test Engine Interface
+
+```java
+package org.junit.platform.engine;
+
+public interface TestEngine {
+
+  TestDescriptor discover(EngineDiscoveryRequest discoveryRequest...);
+
+  void execute(ExecutionRequest executionRequest);
+
+}
+```
+@[3](`TestEngine` interface)
+@[5](Discovery)
+@[7](Execution)
+@[1-9]
+
+<small>📜 [JUnit Platform Launcher API](https://junit.org/junit5/docs/current/user-guide/#launcher-api)</small>
+
++++
+
 #### Platform Launcher
 
 ```java
@@ -148,28 +170,6 @@ JUnit 4 ships as a single artifact.
 @[24](Build Discovery Request and...)
 
 @ulend
-
-+++
-
-#### Test Engine Interface
-
-```java
-package org.junit.platform.engine;
-
-public interface TestEngine {
-
-  TestDescriptor discover(EngineDiscoveryRequest discoveryRequest...);
-
-  void execute(ExecutionRequest executionRequest);
-
-}
-```
-@[3](`TestEngine` interface)
-@[5](Discovery)
-@[7](Execution)
-@[1-9]
-
-<small>📜 [JUnit Platform Launcher API](https://junit.org/junit5/docs/current/user-guide/#launcher-api)</small>
 
 +++
 
