@@ -24,10 +24,9 @@
 - User Guide: 📜 https://junit.org/junit5/docs/current/user-guide
 - Samples: https://github.com/junit-team/junit5-samples
 - Workshop JUnit 5: c.stein@micromata.de
-- Support JUnit: https://steadyhq.com/en/junit
-- Java 11: https://jdk.java.net/11 ☕
-- Slack: `jvm-german`/`#jug-bonn` https://bit.ly/jvmg-invite
-- Unconference: https://entwickelbar.github.io am 24. November
+- Support 💚 JUnit: https://junit.org/sponsoring
+- Java 12: https://jdk.java.net/12 ☕
+- Accento.dev: https://accento.dev am 24. September 2019
 
 @ulend
 </small>
@@ -520,12 +519,14 @@ void repeatedTestWithRepetitionInfo(RepetitionInfo info) {
 
 +++
 
-## Coming In Jupiter 5.4
+## Coming In Jupiter 5.5
 
 - Bug Fixes
-- Display Name Generator
-- Test Kit
-- Order Sequence of Tests [#13](https://github.com/junit-team/junit5/issues/13)
+- Configurable test discovery implementation (Platform 1.5)
+- 🕔 `@Timeout` annotation
+- ❌ Deprecated Script-based Conditions for removal
+- New `InvocationInterceptor` extension API
+- Kotlin friendly `assertDoesNotThrow`, `assertTimeout[Preemptively]` top-level functions
 
 +++
 
@@ -555,5 +556,4 @@ Support JUnit<br>https://steadyhq.com/en/junit
 _twitter_ [@sormuras](https://twitter.com/sormuras)<br>
 _blog_ [sormuras.github.io](https://sormuras.github.io)<br>
 _slides_ [junit5-there-is-no-junit5](https://github.com/sormuras/junit5-there-is-no-junit5)<br>
-_slack_ [slack jvm-german #jug-bonn](bit.ly/jvmg-invite)<br>
 </small> 
