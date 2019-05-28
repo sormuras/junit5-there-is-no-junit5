@@ -550,7 +550,7 @@ void repeatedTestWithRepetitionInfo(RepetitionInfo info) {
 # Thanks
 #### Happy testing!
 
-Support JUnit<br>https://steadyhq.com/en/junit
+Support 💚 JUnit<br>https://junit.org/sponsoring
 
 <small>
 _twitter_ [@sormuras](https://twitter.com/sormuras)<br>
