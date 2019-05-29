@@ -106,14 +106,14 @@ JUnit 4 ships as a single artifact.
 
 @ul
 
-- Foundation for launching test engines
 - Defines and uses **`TestEngine`**☑ interface
+- Foundation for launching test engines
 
 @ulend
 
 +++
 
-#### Test Engine Interface
+#### Test Engine ☑ Interface
 
 ```java
 package org.junit.platform.engine;
@@ -236,7 +236,7 @@ public interface TestEngine {
 #### JUnit 5 = Platform + *many engines*
 # 3<sup>rd</sup>-party Engines ☑
 
-Specsy, Spek, KotlinTest, Cucumber, Drools, jqwik, ...
+Specsy, Spek, KotlinTest, Cucumber, Drools, jqwik, Mainrunner...
 
 <small><https://github.com/junit-team/junit5/wiki/Third-party-Extensions></small>
 
@@ -521,12 +521,13 @@ void repeatedTestWithRepetitionInfo(RepetitionInfo info) {
 
 ## Coming In Jupiter 5.5
 
-- Bug Fixes
-- Configurable test discovery implementation (Platform 1.5)
+- Configurable Test Discovery (Platform 1.5)
 - 🕔 `@Timeout` annotation
 - ❌ Deprecated Script-based Conditions for removal
 - New `InvocationInterceptor` extension API
+- Explicit Java ☕ modules
 - Kotlin friendly `assertDoesNotThrow`, `assertTimeout[Preemptively]` top-level functions
+- Bug Fixes
 
 +++
 
