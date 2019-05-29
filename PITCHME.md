@@ -502,9 +502,9 @@ void repeatedTestWithRepetitionInfo(RepetitionInfo info) {
 
 ### Parallel Execution
 
-- <small>Set `junit.jupiter.execution.parallel.enabled` to `true`</small>
+- Set <small>`junit.jupiter.execution.parallel.enabled`</small> to <small>`true`</small>
+- `@Execution(CONCURRENT)`
 - <small>`junit.jupiter.execution.parallel.mode.default = concurrent`</small>
-- or use `@Execution(CONCURRENT)` on test class/method
 - Parallel! 🚀🚀🚀...
 
 <small>📜 [Parallel Execution](https://junit.org/junit5/docs/current/user-guide/#writing-tests-parallel-execution)</small>
