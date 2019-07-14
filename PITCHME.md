@@ -256,7 +256,7 @@ Specsy, Spek, KotlinTest, Cucumber, Drools, jqwik, Mainrunner...
   - IntelliJ IDEA (≥ 2016.2)
   - Eclipse (≥ 4.7.1a)
   - Visual Studio Code (Java Test Runner ≥ 0.4.0)
-  - Netbeans (will come with 10.0)
+  - Netbeans (≥ 10.0)
 - For other tools, there's `@RunWith(JUnitPlatform)`
 
 +++
@@ -502,9 +502,8 @@ void repeatedTestWithRepetitionInfo(RepetitionInfo info) {
 
 ### Parallel Execution
 
-- Set <small>`junit.jupiter.execution.parallel.enabled`</small> to <small>`true`</small>
-- `@Execution(CONCURRENT)`
-- <small>`junit.jupiter.execution.parallel.mode.default = concurrent`</small>
+- <small>`junit.jupiter.execution.parallel.enabled = true`</small>
+- `@Execution(ExecutionMode.CONCURRENT)` on class
 - Parallel! 🚀🚀🚀...
 
 <small>📜 [Parallel Execution](https://junit.org/junit5/docs/current/user-guide/#writing-tests-parallel-execution)</small>
@@ -521,24 +520,18 @@ void repeatedTestWithRepetitionInfo(RepetitionInfo info) {
 
 +++
 
-## Coming In Jupiter 5.5
+## Coming In Jupiter 5.6
 
-- Configurable Test Discovery (Platform 1.5)
-- 🕔 `@Timeout` annotation
-- ❌ Deprecated Script-based Conditions for removal
-- New `InvocationInterceptor` extension API
-- Explicit Java ☕ modules
-- Kotlin friendly `assertDoesNotThrow`, `assertTimeout[Preemptively]` top-level functions
+- New reporting format [opentest4j: #9](https://github.com/ota4j-team/opentest4j/issues/9)
+- ❌ Remove Script-based Conditions
 - Bug Fixes
 
 +++
 
 ## Future
 
-- New reporting format [opentest4j: #9](https://github.com/ota4j-team/opentest4j/issues/9)
-- Scenario Tests [#48](https://github.com/junit-team/junit5/issues/48)
-- Declarative Test Suites [theme: suites](https://github.com/junit-team/junit5/labels/theme%3A%20suites)
 - Parameterized Classes [#871](https://github.com/junit-team/junit5/issues/871)
+- Declarative Test Suites [theme: suites](https://github.com/junit-team/junit5/labels/theme%3A%20suites)
 - _Your ideas?_
 
 +++
