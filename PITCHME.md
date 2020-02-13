@@ -22,10 +22,10 @@
 
 - User Guide: 📜 https://junit.org/junit5/docs/current/user-guide
 - Samples: https://github.com/junit-team/junit5-samples
-- Workshop JUnit 5: c.stein@micromata.de
 - Support 💚 JUnit: https://junit.org/sponsoring
-- Java 12: https://jdk.java.net/12 ☕
-- Accento.dev: https://accento.dev am 24. September 2019
+- Support 💚 Christian: https://github.com/sponsors/sormuras
+- Java 14: https://jdk.java.net/14 ☕ am 17. März 2020
+- JavaLand: [JUnit 5 & Project Loom](https://programm.javaland.eu/2020/#/scheduledEvent/590918) am 17. März 2020
 
 @ulend
 </small>
