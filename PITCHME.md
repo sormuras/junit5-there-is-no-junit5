@@ -519,10 +519,10 @@ void repeatedTestWithRepetitionInfo(RepetitionInfo info) {
 
 +++
 
-## Coming In Jupiter 5.6
+## Coming In Jupiter 5.7
 
 - New reporting format [opentest4j: #9](https://github.com/ota4j-team/opentest4j/issues/9)
-- ❌ Remove Script-based Conditions
+- Extension point for providing a custom [ClassLoader](https://github.com/junit-team/junit5/issues/201)
 - Bug Fixes
 
 +++
